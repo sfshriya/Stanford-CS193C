@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="cardGame.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="cardGame.js"></script>
+    <title>Card Game</title>
+</head>
+
+
+<body onload="javascript: doShuffle()">
+    <table width="100%">
+        <tbody>
+            <tr id="elements">
+               
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="Restart Game" onclick="javascript: reset(); javascript:doShuffle();" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

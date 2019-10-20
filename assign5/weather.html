@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Weather</title>
+    <style>
+        #textArea {
+            margin-top: 20px;
+            width: 500px;
+            height: 350px;
+        }
+
+        #zipCode {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<!-- 95695c87dc7543b0d9e2ba1edbffc9ed -->
+
+<body>
+    <h1>Open Weather Via AJAX</h1>
+    <div>
+        <span id="zipCode">
+            <b>Enter ZIP code: </b> <input type="text" id="textZip" name="zipCode" />
+        </span>
+        <input type="button" value="Get Weather" onclick="getWeather()" />
+        <input type="button" value="Clear" onclick="clearText()" />
+    </div>
+    <textarea id="textArea" readonly></textarea>
+
+    <script>
+        var newHTML = "";
+
+        function clearText() {
+            document.getElementById("textArea").innerHTML = "";
+            newHTML = "";
+        }
+
+        function getWeather() {
+            console.log("in getWeather");
+            var urlString = "http://api.openweathermap.org/data/2.5/weather?zip=" + document.getElementById("textZip").value + ",us&units=imperial&APPID=95695c87dc7543b0d9e2ba1edbffc9ed";
+
+            fetch(urlString)
+                .then((response) => response.json())
+                .then((jsonResult) => processWeather(jsonResult))
+                .catch(notifyOfError);
+        }
+        function processWeather(jsonResult) {
+
+            var obj = JSON.parse(JSON.stringify(jsonResult));
+
+            newHTML = newHTML + obj.name + ": " + obj.main.temp + "\n";
+
+            document.getElementById("textArea").innerHTML = newHTML;
+
+        }
+        function notifyOfError(err) {
+            var errMsg = "<p>" + err.msg + "</p>";
+            console.log(errMsg);
+        }
+    </script>
+</body>
+
+</html>

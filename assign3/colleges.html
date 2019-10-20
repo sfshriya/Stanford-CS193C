@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <link rel="stylesheet" type="text/css" href="colleges.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="colleges.js"></script>
+        <title>Colleges</title>
+</head>
+
+
+<body onload="javascript: displayData()">
+    <div class="wrapper">
+
+            <div class="box header">
+                    <h1>Bay Area Colleges and Universities</h1>
+            </div>
+
+            <div class="box sidebar">
+                <table class="college-table" id="collegeTable">
+                    <thead>
+                            <tr>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        SAT High
+                                    </th>
+                                    <th>
+                                        SAT Low
+                                    </th>
+                                    <th>
+                                        Tuition
+                                    </th>
+                                </tr>
+                    </thead>
+                    <tbody id="collegeTableBody">
+                                
+                    </tbody>
+                </table>
+            </div>
+            <div class="box content">
+                <table>
+                    <tr>
+                        <th>
+                            Search Criteria
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                                <input type="radio" id="public" name="typeSchool"> Public
+                    
+                                <input type="radio" id="private" name="typeSchool"> Private
+                        
+                                <input type="radio" id="dontCare" name="typeSchool"> Don't Care
+                        </td>
+                    </tr>
+                    <tr>
+                            <td>
+                                Maximum Tuition
+                                <input autocomplete="off" type="text" id="maxTuiton" name="maxTuition" value=""/>
+                            </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Maximum High SAT
+                            <input autocomplete="off" type="text" id="maxSAT" name="maxSAT" value=""/>
+                        </td>
+                    </tr>
+                    <tr>
+                            <td>
+                                Minimum Low SAT
+                                <input autocomplete="off" type="text" id="minSAT" name="minSAT" value=""/>
+                            </td>
+                    </tr>
+                        
+                </table>
+
+                <input class="button" type="button" id="update" name="update" value="Update" onclick="update()">
+
+            </div>
+
+
+
+</body>
+
+</html>
